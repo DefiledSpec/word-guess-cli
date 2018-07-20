@@ -5,18 +5,13 @@ let nL = () => log(`\n`)
 
 let apple = new Word('apple')
 
-
 nL()
 
 // log(apple)
 
-
-// nL()
-
-
 nL()
 
-apple.guessLetter('a')
-apple.guessLetter('p')
-apple.guessLetter('L')
-apple.guessLetter('e')
+apple.guess('a')
+apple.guess('p')
+apple.guess('L')
+apple.guess('e')
