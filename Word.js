@@ -7,7 +7,7 @@ class Word {
         this.complete = false
         this.letters.forEach( ltr => this.word.push(new Letter(ltr)) );
         this.guessed = []
-        this.totalChances = this.letters.length
+        this.totalChances = this.letters.length + 5
         this.chances = this.totalChances 
         this.toString() 
     }

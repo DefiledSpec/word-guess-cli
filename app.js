@@ -3,12 +3,24 @@ let Word = require('./Word')
 
 let curWord;
 
-// const words = ['apple', 'orange', 'pear', 'plumb']
-
-(function start() {
-    curWord = new Word('apple')
-    run()
-})()
+const words = ['apple', 'orange', 'pear', 'plumb']
+start()
+function start() {
+    inquirer.prompt([{
+        name: 'newGame',
+        message: 'Would you like to play?',
+        type: 'confirm'
+    }]).then(res => {
+        if(res.newGame) {
+            let rand = Math.floor(Math.random() * words.length)
+            let randWord = words[rand]
+            curWord = new Word(randWord)
+            run()
+        }else{
+            process.exit()
+        }
+    })
+}
 
 function run() {
     if(curWord.chances > 0 && !curWord.complete) {
@@ -22,5 +34,7 @@ function run() {
                 run()
             }
         })
+    }else{
+        start()
     }
 }
