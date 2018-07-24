@@ -6,10 +6,9 @@ class Word {
         this.letters = str.split('')
         this.complete = false
         this.letters.forEach( ltr => this.word.push(new Letter(ltr)) );
-        this.guessed = []
         this.totalChances = this.letters.length + 5
         this.chances = this.totalChances 
-        this.toString() 
+        // this.toString()
     }
     toString() {
         this.wordStr = ''
@@ -24,10 +23,9 @@ class Word {
     }
     guess(char) {
         let guess = new Letter(char)     
-        this.guessed.push(guess)
         this.chances--
         this.word.forEach(ltr => !ltr.guessed ? ltr.check(guess) : null )
-        this.toString()
+        // this.toString()
     }
     checkWord() {
         this.complete = this.word.every( ltr => ltr.guessed )
