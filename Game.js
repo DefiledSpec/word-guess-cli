@@ -30,7 +30,7 @@ class WordGuess {
             inquirer.prompt([{
                 name: 'letter', 
                 message: `What letter would you like to guess? You have ${this.curWord.chances} left`,
-                
+
             }]).then( res => {
                 let guess = res.letter[0]
                 let isLetter = false
@@ -46,13 +46,13 @@ class WordGuess {
                     this.curWord.guess(guess)
                     this.run()
                 }else{
-                    console.log('Please enter a valid input!')
+                    console.log('\nPlease enter a valid input!\n')
                     return this.run()
                 }
             }).catch(err => console.error(err))
         }else{
             if(this.curWord.chances <= 0) {
-                console.log(`You have run out of chances! The word is '${this.curWord.toString()}'`)
+                console.log(`\nYou have run out of chances! The word is '${this.curWord.toString()}'\n`)
                 return this.start()
             }
             this.start()
