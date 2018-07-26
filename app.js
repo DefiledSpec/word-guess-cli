@@ -3,12 +3,12 @@ const WordGuess = require('./Game')
 const words = [
     'apple', 
     'orange', 
-    'pear', 
-    'plumb', 
-    'grapes', 
+    'pear',
+    'grape', 
     'watermelon', 
     'strawberry', 
-    'pineapple'
+    'pineapple',
+    'peach'
 ]
 
 let running = false
@@ -21,7 +21,7 @@ try {
 } catch(err) {
     throw `Start Error: ${err.message}`
 } finally {
-    console.log(`\nHangman ${running ? 'Started' : 'Failed to start'} in ${(Date.now() - startTime)/1000}s.`)
+    console.log(`\nHangman ${running ? 'Started' : 'Failed to start'} in ${(Date.now() - startTime)/1000}s.\n`)
     if(running) {
         instance.start()
     }
